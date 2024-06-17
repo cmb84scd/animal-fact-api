@@ -13,3 +13,8 @@ def some_numbers(num: Iterable[int]) -> int:
 def some_string(name: str) -> str:
     """Return a greeting to someone."""
     return "hello " + name
+
+
+def some_func(word: str) -> str:
+    """Return capitalised word."""
+    return word.capitalize

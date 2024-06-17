@@ -5,7 +5,7 @@ repos:
         name: ruff
         entry: poetry run ruff check
         language: system
-        types: [python]
+        files: (^pyproject\.toml|\.py)$
     -   id: format
         name: format
         entry: poetry run ruff format --check

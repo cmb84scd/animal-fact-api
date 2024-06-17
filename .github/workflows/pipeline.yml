@@ -14,6 +14,9 @@ jobs:
       with:
         poetry-version: '1.8.3'
     - uses: extractions/setup-just@v2
+    - uses: pyupio/safety-action@v1
+      with:
+        api-key: ${{ secrets.SAFETY_API_KEY }}
     - name: install dependencies
       run: just install
     - name: Lint with ruff

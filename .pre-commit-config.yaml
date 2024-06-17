@@ -8,16 +8,16 @@ repos:
         files: (^pyproject\.toml|\.py)$
     -   id: format
         name: format
-        entry: poetry run ruff format --check
+        entry: just format
         language: system
         files: (^pyproject\.toml|\.py)$
     -   id: safety
         name: safety
-        entry: poetry run safety scan
+        entry: just safety
         language: system
         files: poetry.lock
     -   id: bandit
         name: bandit
-        entry: poetry run bandit -r animal_fact_api -q
+        entry: just bandit
         language: system
         files: (^\.bandit|^animal_fact-api\/.+\.py)$

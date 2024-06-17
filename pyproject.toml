@@ -12,6 +12,7 @@ python = "^3.12"
 bandit = "^1.7.9"
 safety = "^3.2.3"
 ruff = "^0.4.8"
+pre-commit = "^3.7.1"
 
 [build-system]
 requires = ["poetry-core"]

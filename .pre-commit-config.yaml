@@ -3,21 +3,21 @@ repos:
     hooks:
     -   id: ruff
         name: ruff
-        entry: just ruff
+        entry: poetry run ruff check
         language: system
         files: (^pyproject\.toml|\.py)$
     -   id: format
         name: format
-        entry: just format
+        entry: poetry run ruff format --check
         language: system
         files: (^pyproject\.toml|\.py)$
     -   id: safety
         name: safety
-        entry: just safety
+        entry: poetry run safety scan
         language: system
         files: poetry.lock
     -   id: bandit
         name: bandit
-        entry: just bandit
+        entry: poetry run bandit -r animal_fact_api -q
         language: system
         files: (^\.bandit|^animal_fact-api\/.+\.py)$

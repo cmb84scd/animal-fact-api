@@ -18,7 +18,19 @@ jobs:
       task: bandit
 
   safety:
-    uses: ./.github/workflows/python.yml
-    uses: pyupio/safety-action@v1
-    with:
-      api-key: ${{ secrets.SAFETY_API_KEY }}
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - uses: actions/setup-python@v5
+      with:
+        python-version: '3.12'
+        cache: 'poetry'
+    - uses: abatilo/actions-poetry@v3
+      with:
+        poetry-version: '1.8.3'
+    - uses: extractions/setup-just@v2
+    - name: install dependencies
+      run: just install
+    - uses: pyupio/safety-action@v1
+      with:
+        api-key: ${{ secrets.SAFETY_API_KEY }}

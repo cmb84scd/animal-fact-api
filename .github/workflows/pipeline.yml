@@ -8,22 +8,17 @@ on:
 
 jobs:
   lint:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v4
-    - uses: actions/setup-python@v5
-      with:
-        python-version: '3.12'
-    - uses: abatilo/actions-poetry@v3
-      with:
-        poetry-version: '1.8.3'
-    - uses: extractions/setup-just@v2
-    - name: install dependencies
-      run: just install
-    - name: Lint with ruff
-      run: just lint
-    - name: bandit
-      run: just bandit
-    - uses: pyupio/safety-action@v1
-      with:
-        api-key: ${{ secrets.SAFETY_API_KEY }}
+    uses: ./.github/workflows/python.yml
+    with:
+      task: lint
+
+  bandit:
+    uses: ./.github/workflows/python.yml
+    with:
+      task: bandit
+
+  safety:
+    uses: ./.github/workflows/python.yml
+    uses: pyupio/safety-action@v1
+    with:
+      api-key: ${{ secrets.SAFETY_API_KEY }}

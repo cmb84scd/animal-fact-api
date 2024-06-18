@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "animal-fact-api"
+version = "0.1.0"
+description = "Basic API to return some animal facts."
+authors = ["Catriona Bennett <catrionamairi@blueyonder.co.uk>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+
+[tool.poetry.group.dev.dependencies]
+bandit = "^1.7.9"
+safety = "^3.2.3"
+ruff = "^0.4.8"
+pre-commit = "^3.7.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

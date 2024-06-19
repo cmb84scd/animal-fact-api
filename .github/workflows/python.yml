@@ -23,8 +23,9 @@ jobs:
     - name: install dependencies
       run: just install
     - if: inputs.task == 'safety'
-      - uses: pyupio/safety-action@v1
-        with:
-          api-key: ${{ secrets.SAFETY_API_KEY }}
+      |
+      uses: pyupio/safety-action@v1
+      with:
+        api-key: ${{ secrets.SAFETY_API_KEY }}
     - if: inputs.task != 'safety'
       run: just ${{ inputs.task }}

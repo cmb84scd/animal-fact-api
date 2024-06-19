@@ -6,6 +6,9 @@ on:
       task:
         required: true
         type: string
+      apiKey:
+        required: false
+        type: string
 
 jobs:
   python:
@@ -25,6 +28,6 @@ jobs:
     - if: inputs.task == 'safety'
       uses: pyupio/safety-action@v1
       with:
-        api-key: ${{ secrets.SAFETY_API_KEY }}
+        api-key: ${{ inputs.apiKey }}
     - if: inputs.task != 'safety'
       run: just ${{ inputs.task }}

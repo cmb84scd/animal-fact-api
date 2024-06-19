@@ -1,23 +1,14 @@
-name: Pipeline CI
+name: 'Python'
 
 on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+  workflow_call:
+    inputs:
+      task:
+        required: false
+        type: string
 
 jobs:
-  lint:
-    uses: ./.github/workflows/python.yml
-    with:
-      task: lint
-
-  bandit:
-    uses: ./.github/workflows/python.yml
-    with:
-      task: bandit
-
-  safety:
+  python:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
@@ -31,6 +22,4 @@ jobs:
     - uses: extractions/setup-just@v2
     - name: install dependencies
       run: just install
-    - uses: pyupio/safety-action@v1
-      with:
-        api-key: ${{ secrets.SAFETY_API_KEY }}
+    - run: just ${{ inputs.task }}

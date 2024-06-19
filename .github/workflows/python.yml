@@ -23,12 +23,14 @@ jobs:
     - name: install dependencies
       run: just install
     - if: ${{ inputs.task }} == "safety"
-      run: echo "in safety if. Return:"
-      run: ${{ inputs.task }}
+      run: |
+        echo "in safety if. Return:"
+        ${{ inputs.task }}
       # uses: pyupio/safety-action@v1
       # with:
       #   api-key: ${{ secrets.SAFETY_API_KEY }}
     - if: ${{ inputs.task }} != "safety"
-      run: echo "in non safety if. Return:"
-      run: ${{ inputs.task }}
-      run: just ${{ inputs.task }}
+      run: |
+        echo "in non safety if. Return:"
+        ${{ inputs.task }}
+      # run: just ${{ inputs.task }}

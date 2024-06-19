@@ -21,4 +21,4 @@ jobs:
     uses: ./.github/workflows/python.yml
     with:
       task: safety
-      api-key: ${{ secrets.SAFETY_API_KEY }}
+      apiKey: ${{ secrets.SAFETY_API_KEY }}

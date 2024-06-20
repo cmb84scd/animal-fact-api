@@ -21,5 +21,9 @@ jobs:
     uses: ./.github/workflows/python.yml
     with:
       task: safety
-    secrets:
-      apiKey: ${{ secrets.SAFETY_API_KEY }}
+    # secrets:
+    #   apiKey: ${{ secrets.SAFETY_API_KEY }}
+    steps:
+    - uses: pyupio/safety-action@v1
+      with:
+        api-key: ${{ secrets.SAFETY_API_KEY }}

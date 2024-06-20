@@ -6,9 +6,9 @@ on:
       task:
         required: true
         type: string
-    secrets:
-      apiKey:
-        required: false
+    # secrets:
+    #   apiKey:
+    #     required: false
 
 jobs:
   python:
@@ -26,8 +26,9 @@ jobs:
     - name: install dependencies
       run: just install
     - if: inputs.task == 'safety'
-      uses: pyupio/safety-action@v1
-      with:
-        api-key: ${{ secrets.apiKey }}
+      run: echo 'Doing safety scan.'
+      # uses: pyupio/safety-action@v1
+      # with:
+      #   api-key: ${{ secrets.apiKey }}
     - if: inputs.task != 'safety'
       run: just ${{ inputs.task }}

@@ -12,18 +12,20 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - uses: ./.github/actions
-    # with:
-    #   task: lint
     - run: just lint
 
-  # bandit:
-  #   uses: ./.github/workflows/python.yml
-  #   with:
-  #     task: bandit
+  bandit:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - uses: ./.github/actions
+    - run: just bandit
 
-  # safety:
-  #   uses: ./.github/workflows/python.yml
-  #   with:
-  #     task: safety
-  #   secrets:
-  #     apiKey: ${{ secrets.SAFETY_API_KEY }}
+  safety:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - uses: ./.github/actions
+    - uses: pyupio/safety-action@v1
+      with:
+        api-key: ${{ secrets.SAFETY_API_KEY }}

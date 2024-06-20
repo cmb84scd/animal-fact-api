@@ -1,20 +1,5 @@
 name: 'Python'
 
-# on:
-#   workflow_call:
-#     inputs:
-#       task:
-#         required: true
-#         type: string
-#     secrets:
-#       apiKey:
-#         required: false
-
-# jobs:
-#   python:
-#     runs-on: ubuntu-latest
-#     steps:
-#     - uses: actions/checkout@v4
 runs:
   using: 'composite'
   steps:
@@ -29,9 +14,3 @@ runs:
   - name: install dependencies
     run: just install
     shell: bash
-  # - if: inputs.task == 'safety'
-  #   uses: pyupio/safety-action@v1
-  #   with:
-  #     api-key: ${{ secrets.apiKey }}
-  # - if: inputs.task != 'safety'
-  #   run: just ${{ inputs.task }}

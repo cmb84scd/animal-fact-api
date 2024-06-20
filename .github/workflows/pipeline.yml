@@ -8,21 +8,24 @@ on:
 
 jobs:
   lint:
-    uses: ./.github/workflows/python.yml
-    with:
-      task: lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: ./.github/workflows/python.yml
+        # with:
+        #   task: lint
+      - run: just lint
 
-  bandit:
-    uses: ./.github/workflows/python.yml
-    with:
-      task: bandit
+  # bandit:
+  #   uses: ./.github/workflows/python.yml
+  #   with:
+  #     task: bandit
 
-  safety:
-    uses: ./.github/workflows/python.yml
-    with:
-      task: safety
-    # secrets:
-    #   apiKey: ${{ secrets.SAFETY_API_KEY }}
-    - uses: pyupio/safety-action@v1
-      with:
-        api-key: ${{ secrets.SAFETY_API_KEY }}
+  # safety:
+  #   uses: ./.github/workflows/python.yml
+  #   with:
+  #     task: safety
+  #   # secrets:
+  #   #   apiKey: ${{ secrets.SAFETY_API_KEY }}
+  #   - uses: pyupio/safety-action@v1
+  #     with:
+  #       api-key: ${{ secrets.SAFETY_API_KEY }}

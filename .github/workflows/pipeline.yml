@@ -8,29 +8,24 @@ on:
 
 jobs:
   lint:
-    uses: ./.github/workflows/python.yml
-    with:
-      task: lint
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - uses: ./.github/actions
+    - run: just lint
 
   bandit:
-    uses: ./.github/workflows/python.yml
-    with:
-      task: bandit
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - uses: ./.github/actions
+    - run: just bandit
 
   safety:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
-    - uses: abatilo/actions-poetry@v3
-      with:
-        poetry-version: '1.8.3'
-    - uses: actions/setup-python@v5
-      with:
-        python-version: '3.12'
-        cache: 'poetry'
-    - uses: extractions/setup-just@v2
-    - name: install dependencies
-      run: just install
+    - uses: ./.github/actions
     - uses: pyupio/safety-action@v1
       with:
         api-key: ${{ secrets.SAFETY_API_KEY }}

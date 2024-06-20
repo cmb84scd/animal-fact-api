@@ -28,6 +28,7 @@ runs:
   - uses: extractions/setup-just@v2
   - name: install dependencies
     run: just install
+    shell: bash
   # - if: inputs.task == 'safety'
   #   uses: pyupio/safety-action@v1
   #   with:

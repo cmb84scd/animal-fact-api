@@ -6,9 +6,9 @@ on:
       task:
         required: true
         type: string
+    secrets:
       apiKey:
         required: false
-        type: string
 
 jobs:
   python:

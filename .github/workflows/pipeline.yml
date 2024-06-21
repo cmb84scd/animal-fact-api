@@ -10,8 +10,7 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
-    - uses: ./.github/actions
+    - uses: cmb84scd/python-action@v0.1
     - run: just lint
 
   bandit:

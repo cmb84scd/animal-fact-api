@@ -10,7 +10,7 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-    - uses: cmb84scd/python-action@v0.1
+    - uses: cmb84scd/python-action@v1-beta
     - run: just lint
 
   bandit:

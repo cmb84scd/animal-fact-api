@@ -10,19 +10,19 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-    - uses: cmb84scd/python-action@v1
+    - uses: cmb84scd/python-action@v1.0.0
     - run: just lint
 
   bandit:
     runs-on: ubuntu-latest
     steps:
-    - uses: cmb84scd/python-action@v1
+    - uses: cmb84scd/python-action@v1.0.0
     - run: just bandit
 
   safety:
     runs-on: ubuntu-latest
     steps:
-    - uses: cmb84scd/python-action@v1
+    - uses: cmb84scd/python-action@v1.0.0
     - uses: pyupio/safety-action@v1
       with:
         api-key: ${{ secrets.SAFETY_API_KEY }}

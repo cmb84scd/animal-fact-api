@@ -18,7 +18,7 @@ ruff-fix:
     poetry run ruff check --fix
 
 format:
-    poetry run ruff format --check
+    poetry run ruff format --diff
 
 format-fix:
     poetry run ruff format

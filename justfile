@@ -28,3 +28,6 @@ bandit:
 
 safety:
     poetry run safety scan
+
+run:
+    poetry run python manage.py runserver

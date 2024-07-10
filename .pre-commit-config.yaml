@@ -1,3 +1,4 @@
+exclude: ^animal_fact_api/facts/migrations/
 repos:
 -   repo: local
     hooks:
@@ -20,4 +21,4 @@ repos:
         name: bandit
         entry: poetry run bandit -r animal_fact_api -q
         language: system
-        files: (^\.bandit|^animal_fact-api\/.+\.py)$
+        files: (^\.bandit|^animal_fact_api\/)$

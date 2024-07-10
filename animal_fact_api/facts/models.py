@@ -1,5 +1,10 @@
 """Database models for animal facts."""
 
-# from django.db import models
+from django.db import models
 
-# Create your models here.
+
+class Facts(models.Model):
+    """Database model for animal facts."""
+
+    animal = models.CharField(max_length=30)
+    fact = models.TextField()

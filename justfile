@@ -32,7 +32,7 @@ safety:
 run:
     poetry run python manage.py runserver
 
-make-migrations:
+make-migrations app:
     poetry run python manage.py makemigrations {{app}}
 
 migrate:

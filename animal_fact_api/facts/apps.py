@@ -7,4 +7,4 @@ class FactsConfig(AppConfig):
     """Config class for animal facts."""
 
     default_auto_field = "django.db.models.BigAutoField"
-    name = "facts"
+    name = "animal_fact_api.facts"

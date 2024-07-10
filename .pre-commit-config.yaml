@@ -21,4 +21,4 @@ repos:
         name: bandit
         entry: poetry run bandit -r animal_fact_api -q
         language: system
-        files: (^\.bandit|^animal_fact_api\/)$
+        files: (^\.bandit|^animal_fact_api/)$

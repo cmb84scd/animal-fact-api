@@ -8,3 +8,7 @@ class Facts(models.Model):
 
     animal = models.CharField(max_length=30)
     fact = models.TextField()
+
+    def __str__(self) -> str:
+        """Return database object as a string."""
+        return f"{self.animal}: {self.fact}"

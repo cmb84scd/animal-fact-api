@@ -1,6 +1,7 @@
 __pycache__/
 .coverage
 reports/
+.env
 
 # IDE
 .vscode

@@ -18,7 +18,7 @@ ruff-fix:
     poetry run ruff check --fix
 
 format:
-    poetry run ruff format --check
+    poetry run ruff format --diff
 
 format-fix:
     poetry run ruff format
@@ -28,3 +28,12 @@ bandit:
 
 safety:
     poetry run safety scan
+
+run:
+    poetry run python manage.py runserver
+
+make-migrations app:
+    poetry run python manage.py makemigrations {{app}}
+
+migrate:
+    poetry run python manage.py migrate

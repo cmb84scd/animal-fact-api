@@ -1,4 +1,4 @@
-exclude = [".git", ".history", ".venv"]
+exclude = [".git", ".history", ".venv", "./**/migrations/**"]
 src = ["animal_fact_api"]
 
 target-version = "py312"

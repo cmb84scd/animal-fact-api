@@ -2,6 +2,9 @@
 
 from django.urls import path
 
-from .views import index_view
+from . import views
 
-urlpatterns = [path("", index_view, name="index")]
+urlpatterns = [
+    path("", views.FactList.as_view()),
+    path("<int:pk>/", views.FactDetail.as_view()),
+]

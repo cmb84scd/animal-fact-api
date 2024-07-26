@@ -15,8 +15,8 @@ python-decouple = "^3.8"
 [tool.poetry.group.dev.dependencies]
 bandit = "^1.7.9"
 pre-commit = "^3.7.1"
-ruff = "^0.5.1"
-safety = "^3.2.3"
+ruff = "^0.5.5"
+safety = "^3.2.4"
 
 [build-system]
 requires = ["poetry-core"]

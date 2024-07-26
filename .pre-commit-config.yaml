@@ -7,11 +7,13 @@ repos:
         entry: poetry run ruff check
         language: system
         files: (^pyproject\.toml|\.py)$
+        exclude: ^animal_fact_api/tests
     -   id: format
         name: format
         entry: poetry run ruff format --check
         language: system
         files: (^pyproject\.toml|\.py)$
+        exclude: ^animal_fact_api/tests
     -   id: safety
         name: safety
         entry: poetry run safety scan

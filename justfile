@@ -29,6 +29,9 @@ bandit:
 safety:
     poetry run safety scan
 
+test:
+    poetry run python manage.py test animal_fact_api.tests.unit_tests
+
 run:
     poetry run python manage.py runserver
 

@@ -83,6 +83,7 @@ DATABASES = {
         "NAME": config("DB_NAME"),
         "USER": config("DB_USERNAME"),
         "PASSWORD": config("DB_PASSWORD"),
+        "TEST": {},
         "HOST": "localhost",
         "PORT": "5432",
     }

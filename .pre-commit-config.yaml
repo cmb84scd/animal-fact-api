@@ -23,3 +23,8 @@ repos:
         entry: poetry run bandit -r animal_fact_api -q
         language: system
         files: (^\.bandit|^animal_fact_api/)$
+    -   id: test
+        name: test
+        entry: just test
+        language: system
+        files: (^\.coveragerc|\.py)$

@@ -9,3 +9,11 @@ class TestFactView(TestCase):
         response = FactDetail.as_view()(request, pk=fact.pk)
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, "Some cat fact.")
+
+    def test_returns_random_fact_when_no_pk_passed_in(self):
+        Fact.objects.create(animal="cat", fact="Some cat fact.")
+        Fact.objects.create(animal='dog', fact='A dog fact.')
+        request = RequestFactory().get('/facts')
+        response = FactDetail.as_view()(request)
+        self.assertEqual(response.status_code, 200)
+        self.assertIn(response.data['fact'], ["Some cat fact.", "A dog fact."])

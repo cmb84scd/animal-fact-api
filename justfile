@@ -34,6 +34,9 @@ test:
     poetry run coverage report -m --skip-covered
     poetry run coverage html -d reports --fail-under=95
 
+utest:
+    poetry run python manage.py test animal_fact_api.tests.unit_tests
+
 run:
     poetry run python manage.py runserver
 

@@ -30,7 +30,9 @@ safety:
     poetry run safety scan
 
 test:
-    poetry run python manage.py test animal_fact_api.tests.unit_tests
+    poetry run coverage run --omit='manage.py' manage.py test animal_fact_api.tests.unit_tests
+    poetry run coverage report -m --skip-covered
+    poetry run coverage html -d reports --fail-under=95
 
 run:
     poetry run python manage.py runserver

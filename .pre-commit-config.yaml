@@ -25,6 +25,6 @@ repos:
         files: (^\.bandit|^animal_fact_api/)$
     -   id: test
         name: test
-        entry: just test
+        entry: poetry run python manage.py test animal_fact_api.tests.unit_tests
         language: system
         files: (^\.coveragerc|\.py)$

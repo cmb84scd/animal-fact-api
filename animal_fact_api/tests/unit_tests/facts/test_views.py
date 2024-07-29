@@ -1,6 +1,8 @@
-from django.test import TestCase, RequestFactory
-from ....facts.views import FactDetail
+from django.test import RequestFactory, TestCase
+
 from ....facts.models import Fact
+from ....facts.views import FactDetail
+
 
 class TestFactView(TestCase):
     def setUp(self):
@@ -21,5 +23,5 @@ class TestFactView(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertIn(
             response.data["fact"],
-            ["A dog fact.", "Some cat fact.", "Best cat fact."]
+            ["A dog fact.", "Some cat fact.", "Best cat fact."],
         )

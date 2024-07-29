@@ -1,4 +1,4 @@
-exclude = [".git", ".history", ".venv", "./**/migrations/**", "./**/tests/**"]
+exclude = [".git", ".history", ".venv", "**/migrations/**"]
 src = ["animal_fact_api"]
 
 target-version = "py312"
@@ -21,6 +21,9 @@ select = [
     # pyupgrade
     "UP"
 ]
+
+[lint.per-file-ignores]
+"**/tests/*" = ["D"]
 
 [lint.pydocstyle]
 convention = "pep257"

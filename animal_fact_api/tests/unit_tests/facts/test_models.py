@@ -1,5 +1,7 @@
 from django.test import TestCase
+
 from ....facts.models import Fact
+
 
 class TestFact(TestCase):
     def test_returns_database_object_as_string(self):

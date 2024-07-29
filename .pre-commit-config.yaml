@@ -1,4 +1,3 @@
-exclude: ^animal_fact_api/facts/migrations/
 repos:
 -   repo: local
     hooks:
@@ -7,13 +6,13 @@ repos:
         entry: poetry run ruff check
         language: system
         files: (^pyproject\.toml|\.py)$
-        exclude: ^animal_fact_api/tests
+        exclude: ^animal_fact_api/facts/migrations
     -   id: format
         name: format
         entry: poetry run ruff format --check
         language: system
         files: (^pyproject\.toml|\.py)$
-        exclude: ^animal_fact_api/tests
+        exclude: ^animal_fact_api/facts/migrations
     -   id: safety
         name: safety
         entry: poetry run safety scan

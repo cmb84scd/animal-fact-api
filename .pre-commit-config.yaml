@@ -15,7 +15,7 @@ repos:
         pass_filenames: false
       - id: safety
         name: safety
-        entry: poetry run safety scan
+        entry: just safety
         language: system
         files: poetry.lock
         pass_filenames: false

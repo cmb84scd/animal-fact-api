@@ -33,13 +33,14 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    "animal_fact_api.facts",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "rest_framework",
+    "animal_fact_api.facts",
 ]
 
 MIDDLEWARE = [
@@ -82,6 +83,7 @@ DATABASES = {
         "NAME": config("DB_NAME"),
         "USER": config("DB_USERNAME"),
         "PASSWORD": config("DB_PASSWORD"),
+        "TEST": {},
         "HOST": "localhost",
         "PORT": "5432",
     }

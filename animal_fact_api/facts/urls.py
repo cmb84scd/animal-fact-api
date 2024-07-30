@@ -2,6 +2,10 @@
 
 from django.urls import path
 
-from .views import index_view
+from . import views
 
-urlpatterns = [path("", index_view, name="index")]
+urlpatterns = [
+    path("facts/all", views.FactList.as_view(), name="fact-list"),
+    path("facts/<int:pk>/", views.FactDetail.as_view(), name="fact-detail"),
+    path("facts/", views.FactDetail.as_view(), name="fact-random"),
+]

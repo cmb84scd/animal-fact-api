@@ -1,30 +1,33 @@
 repos:
--   repo: local
+  - repo: local
     hooks:
-    -   id: ruff
+      - id: ruff
         name: ruff
         entry: just ruff
         language: system
-        files: (^pyproject\.toml|\.py)$
-        exclude: ^animal_fact_api/facts/migrations
-    -   id: format
+        types: [python]
+        pass_filenames: false
+      - id: format
         name: format
-        entry: poetry run ruff format --check
+        entry: just format
         language: system
-        files: (^pyproject\.toml|\.py)$
-        exclude: ^animal_fact_api/facts/migrations
-    -   id: safety
+        types: [python]
+        pass_filenames: false
+      - id: safety
         name: safety
         entry: poetry run safety scan
         language: system
         files: poetry.lock
-    -   id: bandit
+        pass_filenames: false
+      - id: bandit
         name: bandit
-        entry: poetry run bandit -r animal_fact_api -q
+        entry: just bandit
         language: system
         files: (^\.bandit|^animal_fact_api/)$
-    -   id: test
+        pass_filenames: false
+      - id: test
         name: test
-        entry: poetry run python manage.py test animal_fact_api.tests.unit_tests
+        entry: just test
         language: system
         files: (^\.coveragerc|\.py)$
+        pass_filenames: false

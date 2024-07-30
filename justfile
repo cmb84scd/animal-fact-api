@@ -12,8 +12,6 @@ lint: ruff format
 lint-fix: ruff-fix format-fix
 
 ruff:
-    #!/usr/bin/env bash
-    set -euo pipefail
     poetry run ruff check
 
 ruff-fix:

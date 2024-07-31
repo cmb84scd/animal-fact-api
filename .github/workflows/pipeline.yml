@@ -14,13 +14,13 @@ jobs:
     - name: setup database
       run: |
         sudo systemctl start postgresql.service
-        sudo -u postgres psql -c "ALTER USER postgres PASSWORD '${{ env.DB_PASSWORD }}';"
+        sudo -u postgres psql -c "ALTER USER ${{ env.DB_USERNAME }} PASSWORD '${{ env.DB_PASSWORD }}';"
         sudo -u postgres createdb ${{ env.DB_NAME }}
         just migrate
         sudo -u postgres psql -l
       env:
         SECRET_KEY: ${{ secrets.SECRET_KEY }}
-        DB_USERNAME: postgres
+        DB_USERNAME: ${{ secrets.DB_USERNAME }}
         DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
         DB_NAME: ${{ secrets.DB_NAME }}
 

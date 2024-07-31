@@ -1,4 +1,4 @@
-version: '3.0'
+version: "3.0"
 
 scanning-settings:
   max-depth: 6
@@ -18,7 +18,7 @@ report:
       vulnerabilities:
         70612:
           reason: No fix for this yet
-          expires: '2024-07-31'
+          expires: "2024-08-31"
 
 fail-scan-with-exit-code:
   dependency-vulnerabilities:

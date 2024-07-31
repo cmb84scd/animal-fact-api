@@ -1,7 +1,7 @@
 """Views for animal facts api."""
 
 from django.db.models.functions import Random
-from rest_framework import generics
+from rest_framework import generics, status
 from rest_framework.response import Response
 
 from .models import Fact
@@ -27,5 +27,11 @@ class FactDetail(generics.RetrieveAPIView):
             return self.retrieve(request, *args, **kwargs)
         else:
             random_record = Fact.objects.order_by(Random()).first()
-            serializer = self.get_serializer(random_record)
-            return Response(serializer.data)
+            if random_record:
+                serializer = self.get_serializer(random_record)
+                return Response(serializer.data)
+            else:
+                return Response(
+                    {"detail": "No records found."},
+                    status=status.HTTP_404_NOT_FOUND,
+                )

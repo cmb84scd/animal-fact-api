@@ -11,8 +11,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: cmb84scd/python-action@v1
-    - run: |
+    - name: setup database
+      env:
+        DB_USERNAME: postgres
+        DB_PASSWORD: ''
+        DB_NAME: ${{ secrets.DB_NAME }}
+      run: |
         sudo systemctl start postgresql.service
+        just migrate
         sudo -u postgres psql -l
 
   # lint:

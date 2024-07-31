@@ -14,7 +14,7 @@ jobs:
     - name: setup database
       run: |
         sudo systemctl start postgresql.service
-        sudo -u postgres psql -c ALTER USER postgres WITH PASSWORD ${{ env.DB_PASSWORD }};
+        sudo -u postgres psql -c "ALTER USER postgres PASSWORD '${{ env.DB_PASSWORD }}';"
         sudo -u postgres psql -l
       env:
         SECRET_KEY: ${{ secrets.SECRET_KEY }}

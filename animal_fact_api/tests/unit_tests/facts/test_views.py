@@ -25,3 +25,10 @@ class TestFactView(TestCase):
             response.data["fact"],
             ["A dog fact.", "Some cat fact.", "Best cat fact."],
         )
+
+    def test_returns_no_record_response_when_table_is_empty(self):
+        Fact.objects.all().delete()
+        request = self.factory.get("/facts")
+        response = FactDetail.as_view()(request)
+        self.assertEqual(response.status_code, 404)
+        self.assertIn(response.data["detail"], "No records found.")

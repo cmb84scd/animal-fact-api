@@ -15,6 +15,7 @@ jobs:
       run: |
         sudo systemctl start postgresql.service
         sudo -u postgres psql -c "ALTER USER postgres PASSWORD '${{ env.DB_PASSWORD }}';"
+        sudo -u postgres createdb ${{ env.DB_NAME }}
         just migrate
         sudo -u postgres psql -l
       env:

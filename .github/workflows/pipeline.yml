@@ -13,8 +13,7 @@ jobs:
     - uses: cmb84scd/python-action@v1
     - run: |
         sudo systemctl start postgresql.service
-        psql
-        \l
+        sudo -u postgres psql -l
 
   # lint:
   #   runs-on: ubuntu-latest

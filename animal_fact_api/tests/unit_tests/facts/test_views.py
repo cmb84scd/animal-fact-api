@@ -26,7 +26,7 @@ class TestFactView(TestCase):
             ["A dog fact.", "Best cat fact."],
         )
 
-    def test_returns_no_record_response_when_table_is_empty(self):
+    def test_handles_when_there_are_no_records_to_return(self):
         request = self.factory.get("/facts")
         response = FactDetail.as_view()(request)
         self.assertEqual(response.status_code, 404)

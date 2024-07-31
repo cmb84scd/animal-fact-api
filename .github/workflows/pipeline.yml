@@ -9,6 +9,11 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    env:
+      SECRET_KEY: ${{ secrets.SECRET_KEY }}
+      DB_USERNAME: ${{ secrets.DB_USERNAME }}
+      DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+      DB_NAME: ${{ secrets.DB_NAME }}
     steps:
     - uses: cmb84scd/python-action@v1
     - name: setup database
@@ -17,11 +22,6 @@ jobs:
         sudo -u postgres psql -c "ALTER USER ${{ env.DB_USERNAME }} PASSWORD '${{ env.DB_PASSWORD }}';"
         sudo -u postgres createdb ${{ env.DB_NAME }}
         just migrate
-      env:
-        SECRET_KEY: ${{ secrets.SECRET_KEY }}
-        DB_USERNAME: ${{ secrets.DB_USERNAME }}
-        DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
-        DB_NAME: ${{ secrets.DB_NAME }}
     - name: run tests
       run: just test
 

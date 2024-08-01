@@ -7,6 +7,39 @@ on:
     branches: [ "main" ]
 
 jobs:
+  test:
+    runs-on: ubuntu-latest
+    env:
+      SECRET_KEY: ${{ secrets.SECRET_KEY }}
+      DB_USERNAME: ${{ secrets.DB_USERNAME }}
+      DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+      DB_NAME: ${{ secrets.DB_NAME }}
+    steps:
+    - uses: cmb84scd/python-action@v1
+    - name: Setup database
+      run: |
+        sudo systemctl start postgresql.service
+        sudo -u postgres psql -c "ALTER USER ${{ env.DB_USERNAME }} PASSWORD '${{ env.DB_PASSWORD }}';"
+        sudo -u postgres createdb ${{ env.DB_NAME }}
+        just migrate
+    - name: Run tests
+      run: just test-cov
+    - name: Code Coverage Summary Report
+      uses: irongut/CodeCoverageSummary@v1.3.0
+      with:
+        filename: reports/coverage.xml
+        badge: true
+        format: markdown
+        output: both
+    - name: Write to Job Summary
+      run: cat code-coverage-results.md >> $GITHUB_STEP_SUMMARY
+    - name: Add Coverage PR Comment
+      uses: marocchino/sticky-pull-request-comment@v2
+      if: github.event_name == 'pull_request'
+      with:
+        recreate: true
+        path: code-coverage-results.md
+
   lint:
     runs-on: ubuntu-latest
     steps:

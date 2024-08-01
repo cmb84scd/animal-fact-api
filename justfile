@@ -29,12 +29,12 @@ bandit:
 safety:
     poetry run safety scan
 
-test:
+test-cov:
     poetry run coverage run --omit='manage.py' manage.py test animal_fact_api.tests.unit_tests
     poetry run coverage report -m --skip-covered && poetry run coverage html -d reports
     poetry run coverage xml -o reports/coverage.xml --fail-under=95
 
-utest:
+test:
     poetry run python manage.py test animal_fact_api.tests.unit_tests
 
 run:

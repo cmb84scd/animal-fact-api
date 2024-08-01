@@ -24,6 +24,13 @@ jobs:
         just migrate
     - name: run tests
       run: just test
+    - name: Code Coverage Summary Report
+      uses: irongut/CodeCoverageSummary@v1.3.0
+      with:
+        filename: reports/coverage.xml
+        badge: true
+        format: markdown
+        output: both
 
   # lint:
   #   runs-on: ubuntu-latest

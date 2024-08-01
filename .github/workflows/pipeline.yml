@@ -39,22 +39,22 @@ jobs:
         recreate: true
         path: code-coverage-results.md
 
-  # lint:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #   - uses: cmb84scd/python-action@v1
-  #   - run: just lint
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: cmb84scd/python-action@v1
+    - run: just lint
 
-  # bandit:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #   - uses: cmb84scd/python-action@v1
-  #   - run: just bandit
+  bandit:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: cmb84scd/python-action@v1
+    - run: just bandit
 
-  # safety:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #   - uses: cmb84scd/python-action@v1
-  #   - uses: pyupio/safety-action@v1
-  #     with:
-  #       api-key: ${{ secrets.SAFETY_API_KEY }}
+  safety:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: cmb84scd/python-action@v1
+    - uses: pyupio/safety-action@v1
+      with:
+        api-key: ${{ secrets.SAFETY_API_KEY }}

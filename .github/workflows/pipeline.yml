@@ -16,7 +16,7 @@ jobs:
       DB_NAME: ${{ secrets.DB_NAME }}
     steps:
     - uses: cmb84scd/python-action@v1
-    - name: setup database
+    - name: Setup database
       run: |
         sudo systemctl start postgresql.service
         sudo -u postgres psql -c "ALTER USER ${{ env.DB_USERNAME }} PASSWORD '${{ env.DB_PASSWORD }}';"
@@ -33,6 +33,11 @@ jobs:
         output: both
     - name: Write to Job Summary
       run: cat code-coverage-results.md >> $GITHUB_STEP_SUMMARY
+    - name: Add Coverage PR Comment
+      uses: marocchino/sticky-pull-request-comment@v2
+      with:
+        recreate: true
+        path: code-coverage-results.md
 
   # lint:
   #   runs-on: ubuntu-latest

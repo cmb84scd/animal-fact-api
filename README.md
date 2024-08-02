@@ -11,7 +11,7 @@
   - [Python](#python)
   - [Poetry](#poetry)
   - [Just](#just)
-  - [Postgres](#postgres)
+  - [PostgreSQL](#postgresql)
   - [Project](#project)
 - [Commands](#commands)
 
@@ -41,9 +41,9 @@ poetry self update
 
 ### Just
 
-This project uses just to run the lint, test, etc commands. To use just you will need to install it but if you'd prefer not to, you can copy the commands from the `justfile` and paste them directly into your terminal to run them. To install just follow the instructions [here](https://just.systems/man/en/).
+This project uses just to run the lint, test, etc commands. To use just you will need to install it but if you'd prefer not to, you can copy the commands from the `justfile` and paste them directly into your terminal to run them. To install just, follow the instructions [here](https://just.systems/man/en/).
 
-### Postgres
+### PostgreSQL
 
 This project uses PostgreSQL version 14. To install PostgreSQL, follow the instructions [here](https://www.postgresql.org/download/).
 
@@ -72,11 +72,11 @@ Replace the values with your details. For the `SECRET_KEY` you could use [djecre
 
 Once you have done this, you can run the migrations using `just migrate`.
 
-Now you are ready to use the project! Once you've added some animal facts of your choice to your database, you can run `just run` to start the server. Then go to `localhost:8000/facts` to see a random fact. Check out [urls](animal_fact_api/facts/urls.py) for the other urls you can access.
+Now you are ready to use the project! Once you've added some animal facts of your choice to your database, you can run `just run` to start the server. Then go to `localhost:8000/facts` to see a random fact. Check out [urls.py](animal_fact_api/facts/urls.py) for the other urls you can access.
 
 ### Commands
 
-All commands are defined in `justfile` and are run as `just {command}` where `{command}` is one of:
+All commands are defined in the `justfile` and are run as `just {command}` where `{command}` is one of:
 
 | Name     | Description                            |
 | ----     | -------------------------------------- |
@@ -84,3 +84,5 @@ All commands are defined in `justfile` and are run as `just {command}` where `{c
 | test-cov | Runs all the unit tests with coverage  |
 | lint     | Runs all the linting checks            |
 | lint-fix | Automatically fixes any linting issues |
+
+I haven't listed all the commands here, but you can see them all by looking in the `justfile`.

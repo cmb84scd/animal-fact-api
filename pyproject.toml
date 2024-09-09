@@ -6,7 +6,7 @@ authors = ["Catriona Bennett <catrionamairi@blueyonder.co.uk>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-django = "^5.0.7"
+django = "^5.1.1"
 djangorestframework = "^3.15.2"
 psycopg = "^3.2.1"
 python = "^3.12"
@@ -14,10 +14,10 @@ python-decouple = "^3.8"
 
 [tool.poetry.group.dev.dependencies]
 bandit = "^1.7.9"
-coverage = "^7.6.0"
-pre-commit = "^3.7.1"
-ruff = "^0.5.5"
-safety = "^3.2.4"
+coverage = "^7.6.1"
+pre-commit = "^3.8.0"
+ruff = "^0.6.4"
+safety = "^3.2.7"
 
 [build-system]
 requires = ["poetry-core"]

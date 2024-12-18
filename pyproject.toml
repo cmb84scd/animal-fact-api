@@ -9,7 +9,7 @@ readme = "README.md"
 django = "^5.1.4"
 djangorestframework = "^3.15.2"
 psycopg = "^3.2.3"
-python = "^3.12"
+python = "^3.11"
 gunicorn = "^23.0.0"
 whitenoise = "^6.8.2"
 

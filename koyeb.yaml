@@ -1,0 +1,6 @@
+name: animal-fact-api
+runtime: python:3.12
+build:
+  commands:
+    - poetry install
+    - poetry run python manage.py migrate

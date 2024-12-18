@@ -21,13 +21,13 @@ fail-scan-with-exit-code:
     enabled: true
     fail-on-any-of:
       cvss-severity:
-        - medium
         - critical
         - high
+        - medium
       exploitability:
-        - medium
         - critical
         - high
+        - medium
 
 security-updates:
   dependency-vulnerabilities:

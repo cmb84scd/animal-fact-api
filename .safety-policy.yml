@@ -15,10 +15,6 @@ report:
         environment-results: true
         unpinned-requirements: true
       cvss-severity: []
-      vulnerabilities:
-        70612:
-          reason: No fix for this yet
-          expires: "2024-09-30"
 
 fail-scan-with-exit-code:
   dependency-vulnerabilities:

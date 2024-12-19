@@ -10,8 +10,9 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
-import os
 from pathlib import Path
+
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -21,12 +22,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ["SECRET_KEY"]
+SECRET_KEY = config("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get("DEBUG", True)
+DEBUG = config("DEBUG", default=True, cast=bool)
 
-ALLOWED_HOSTS = os.environ.get(
+ALLOWED_HOSTS = config(
     "DJANGO_ALLOWED_HOSTS", "localhost,127.0.0.1,[::1]"
 ).split(",")
 
@@ -82,11 +83,11 @@ WSGI_APPLICATION = "animal_fact_api.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": os.environ["DB_NAME"],
-        "USER": os.environ["DB_USERNAME"],
-        "PASSWORD": os.environ["DB_PASSWORD"],
+        "NAME": config("DB_NAME"),
+        "USER": config("DB_USERNAME"),
+        "PASSWORD": config("DB_PASSWORD"),
         "TEST": {},
-        "HOST": os.environ.get("DB_HOST", "localhost"),
+        "HOST": config("DB_HOST", "localhost"),
         "OPTIONS": {"sslmode": "require"},
     }
 }
